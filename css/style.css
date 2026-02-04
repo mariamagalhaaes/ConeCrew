@@ -25,35 +25,33 @@ nav {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0,0,0,0.85);
     backdrop-filter: blur(12px);
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 50px;
+    justify-content: center;
     z-index: 1000;
-}
-
-nav h1 {
-    color: var(--primary);
-    font-size: 1.6rem;
-    font-weight: 800;
 }
 
 nav ul {
     display: flex;
+    align-items: center;
     list-style: none;
+    gap: 25px;
+    padding: 15px;
 }
 
-nav ul li a {
+.logo-hero {
+    width: 50px;
+}
+
+nav a {
     color: var(--text-main);
     text-decoration: none;
-    margin-left: 30px;
     font-weight: 500;
     transition: color .3s;
 }
 
-nav ul li a:hover {
+nav a:hover {
     color: var(--accent);
 }
 
@@ -65,26 +63,41 @@ nav ul li a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 10%;
-    text-align: center;
+    padding: 120px 10% 60px;
 }
 
-.hero h2 {
-    font-size: 4rem;
+.hero > section {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
     font-weight: 800;
 }
 
-.hero p {
-    max-width: 600px;
-    margin: 20px auto 0;
-    font-size: 1.1rem;
+.hero h3 {
+    color: var(--primary);
 }
 
 .frase {
-    margin-top: 15px;
-    font-size: 1.2rem;
+    margin-top: 20px;
     font-style: italic;
-    opacity: 0.9;
+    font-size: 1.1rem;
+    opacity: .9;
+}
+
+.foto-grupo img {
+    max-width: 420px;
+    width: 100%;
+    border-radius: 18px;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.7);
+    transition: transform .4s ease;
+}
+
+.foto-grupo img:hover {
+    transform: scale(1.05);
 }
 
 section {
@@ -99,76 +112,49 @@ section h3 {
 
 .card {
     background: var(--bg-card);
-    border-radius: 18px;
     padding: 30px;
-    border: 1px solid rgba(255,255,255,0.08);
-}
-
-.sobre-container {
-    display: flex;
-    gap: 50px;
-    align-items: center;
-}
-
-.foto-grupo img {
-    width: 100%;
-    max-width: 500px;
     border-radius: 18px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
-    transition: transform .4s ease;
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: transform .35s ease, box-shadow .35s ease;
 }
 
-.foto-grupo img:hover {
-    transform: scale(1.05);
+.card:hover {
+    transform: scale(1.06);
+    box-shadow: 0 20px 55px rgba(0,0,0,0.6);
 }
 
-.integrantes {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 30px;
-}
-
-.integrante {
-    background: var(--bg-card);
-    padding: 20px;
-    border-radius: 16px;
-    text-align: center;
-    transition: transform .4s ease, box-shadow .4s ease;
-}
-
-.integrante:hover {
-    transform: scale(1.08);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
-}
-
-.integrante img {
-    width: 100%;
-    border-radius: 14px;
-    margin-bottom: 15px;
-}
-
-.premiacoes {
+.shows {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 30px;
 }
 
-.premio {
-    background: var(--bg-card);
-    padding: 25px;
-    border-radius: 16px;
-    transition: transform .4s ease, box-shadow .4s ease;
+.integrantes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 30px;
 }
 
-.premio:hover {
-    transform: scale(1.06);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+.integrantes img {
+    width: 100%;
+    border-radius: 14px;
+    margin-bottom: 15px;
+}
+
+.musicas ol li {
+    margin-bottom: 15px;
+}
+
+.musicas a {
+    margin-left: 10px;
+    color: var(--accent);
+    font-weight: 700;
 }
 
 .btn {
     display: inline-block;
     margin-top: 15px;
-    padding: 14px 22px;
+    padding: 14px;
     border-radius: 10px;
     background: linear-gradient(135deg, var(--primary), var(--accent));
     color: var(--bg-dark);
@@ -185,27 +171,21 @@ footer {
     padding: 30px;
     text-align: center;
     border-top: 1px solid rgba(255,255,255,0.05);
-    font-size: 0.9rem;
 }
 
 @media (max-width: 900px) {
-    .sobre-container {
+    .hero > section {
         flex-direction: column;
         text-align: center;
     }
 }
 
 @media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .hero h2 {
-        font-size: 2.6rem;
-    }
-
     section {
         padding: 70px 6%;
+    }
+
+    .hero h1 {
+        font-size: 2.4rem;
     }
 }
