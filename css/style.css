@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
 
+:root {
+    --bg-dark: #050505;
+    --bg-card: rgba(255,255,255,0.05);
+    --text-main: #e5e7eb;
+    --primary: #8b5cf6;
+    --accent: #22c55e;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -8,17 +16,16 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    background: #050505;
-    color: #e5e7eb;
+    background: var(--bg-dark);
+    color: var(--text-main);
     line-height: 1.7;
 }
-
 
 nav {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0,0,0,0.8);
     backdrop-filter: blur(12px);
     display: flex;
     justify-content: space-between;
@@ -28,7 +35,7 @@ nav {
 }
 
 nav h1 {
-    color: #8b5cf6;
+    color: var(--primary);
     font-size: 1.6rem;
     font-weight: 800;
 }
@@ -39,25 +46,27 @@ nav ul {
 }
 
 nav ul li a {
-    color: #e5e7eb;
+    color: var(--text-main);
     text-decoration: none;
     margin-left: 30px;
     font-weight: 500;
+    transition: color .3s;
 }
 
 nav ul li a:hover {
-    color: #22c55e;
+    color: var(--accent);
 }
-
 
 .hero {
     min-height: 100vh;
     background:
-        linear-gradient(to bottom, rgba(0,0,0,0.7), #050505),
+        linear-gradient(to bottom, rgba(0,0,0,0.7), var(--bg-dark)),
         url("../imagens/banner.jpg") center/cover;
     display: flex;
+    align-items: center;
     justify-content: center;
     padding: 0 10%;
+    text-align: center;
 }
 
 .hero h2 {
@@ -66,152 +75,10 @@ nav ul li a:hover {
 }
 
 .hero p {
-    max-width: 550px;
-    margin-top: 20px;
+    max-width: 600px;
+    margin: 20px auto 0;
     font-size: 1.1rem;
 }
-.hero-container{
-    transition: .4s ease;
-}
-
-.hero-container:hover{
-    transform: scale(1.03);
-}
-
-
-
-section {
-    padding: 120px 10% 80px;
-}
-
-section h3 {
-    font-size: 2.2rem;
-    margin-bottom: 30px;
-    color: #8b5cf6;
-}
-
-
-.card {
-    background: rgba(255,255,255,0.05);
-    border-radius: 18px;
-    padding: 30px;
-    border: 1px solid rgba(255,255,255,0.08);
-}
-
-.foto-grupo {
-    width: 100%;
-    max-width: 500px; 
-    width: 500px;
-    border-radius: 18px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
-    transition: transform .4s ease, box-shadow .4s ease;
-
-}
-
-.foto-grupo img {
-    height: 25%;
-}
-
-@media (max-width: 768px) {
-    .foto-grupo {
-        padding: 30px 6%;
-    }
-
-    .foto-grupo img {
-        max-width: 100%;
-    }
-}
-
-.foto-grupo {
-    overflow: hidden;
-}
-
-
-.foto-grupo img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.8);
-}
-.shows {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
-.foto-grupo img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.8);
-}
-
-.show {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.show span {
-    color: #22c55e;
-}
-
-.btn {
-    margin-top: 10px;
-    padding: 14px;
-    border-radius: 10px;
-    background: linear-gradient(135deg, #8b5cf6, #22c55e);
-    color: #050505;
-    text-align: center;
-    text-decoration: none;
-    font-weight: 700;
-}
-
-
-.integrantes {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 30px;
-}
-
-.integrantes img {
-    width: 100%;
-    border-radius: 14px;
-    margin-bottom: 15px;
-}
-
-
-.musicas ol li {
-    margin-bottom: 15px;
-    font-size: 1.05rem;
-}
-
-.musicas a {
-    margin-left: 15px;
-    color: #22c55e;
-    font-weight: 700;
-}
-
-
-
-footer {
-    padding: 30px;
-    text-align: center;
-    border-top: 1px solid rgba(255,255,255,0.05);
-}
-
-
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-    }
-
-    .hero h2 {
-        font-size: 2.8rem;
-    }
-}
-
-
-.logo-hero {
-    width: 60px;
-    margin-bottom: 25px;
-}
-
 
 .frase {
     margin-top: 15px;
@@ -220,16 +87,125 @@ footer {
     opacity: 0.9;
 }
 
+section {
+    padding: 100px 10%;
+}
 
-.foto-grupo {
-    padding: 80px 10%;
+section h3 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    color: var(--primary);
+}
+
+.card {
+    background: var(--bg-card);
+    border-radius: 18px;
+    padding: 30px;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.sobre-container {
     display: flex;
-    justify-content: center;
+    gap: 50px;
+    align-items: center;
 }
 
 .foto-grupo img {
     width: 100%;
-    max-width: 900px;
+    max-width: 500px;
     border-radius: 18px;
     box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    transition: transform .4s ease;
+}
+
+.foto-grupo img:hover {
+    transform: scale(1.05);
+}
+
+.integrantes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+}
+
+.integrante {
+    background: var(--bg-card);
+    padding: 20px;
+    border-radius: 16px;
+    text-align: center;
+    transition: transform .4s ease, box-shadow .4s ease;
+}
+
+.integrante:hover {
+    transform: scale(1.08);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+}
+
+.integrante img {
+    width: 100%;
+    border-radius: 14px;
+    margin-bottom: 15px;
+}
+
+.premiacoes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.premio {
+    background: var(--bg-card);
+    padding: 25px;
+    border-radius: 16px;
+    transition: transform .4s ease, box-shadow .4s ease;
+}
+
+.premio:hover {
+    transform: scale(1.06);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 14px 22px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: var(--bg-dark);
+    text-decoration: none;
+    font-weight: 700;
+    transition: transform .3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+}
+
+footer {
+    padding: 30px;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 900px) {
+    .sobre-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .hero h2 {
+        font-size: 2.6rem;
+    }
+
+    section {
+        padding: 70px 6%;
+    }
 }
